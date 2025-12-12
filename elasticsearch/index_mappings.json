@@ -1,1 +1,33 @@
-
+{
+  "mappings": {
+    "properties": {
+      "web_logs": {
+        "properties": {
+          "@timestamp": { "type": "date" },
+          "clientip": { "type": "ip" },
+          "ident": { "type": "keyword" },
+          "auth": { "type": "keyword" },
+          "verb": { "type": "keyword" },
+          "request": { "type": "text" },
+          "httpversion": { "type": "keyword" },
+          "response": { "type": "integer" },
+          "bytes": { "type": "integer" },
+          "referrer": { "type": "text" },
+          "agent": { "type": "text" },
+          "log_category": { "type": "keyword" }
+        }
+      },
+      "security_logs": {
+        "properties": {
+          "@timestamp": { "type": "date" },
+          "host": { "type": "keyword" },
+          "process": { "type": "keyword" },
+          "pid": { "type": "integer" },
+          "msg": { "type": "text" },
+          "tags": { "type": "keyword" },
+          "log_category": { "type": "keyword" }
+        }
+      }
+    }
+  }
+}
