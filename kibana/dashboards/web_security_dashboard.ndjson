@@ -1,1 +1,49 @@
-
+{
+  "objects":[
+    {
+      "type":"dashboard",
+      "id":"web_security_dashboard",
+      "attributes":{
+        "title":"Web & Security Logs Dashboard",
+        "description":"A sample dashboard showing web traffic and security events",
+        "panelsJSON":"[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":12,\"h\":6},\"version\":\"7.17.0\",\"type\":\"visualization\",\"id\":\"web_requests_count\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":12,\"y\":0,\"w\":12,\"h\":6},\"version\":\"7.17.0\",\"type\":\"visualization\",\"id\":\"failed_ssh_logins\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":6,\"w\":24,\"h\":6},\"version\":\"7.17.0\",\"type\":\"visualization\",\"id\":\"top_ip_requests\"}]",
+        "optionsJSON":"{\"useMargins\":true,\"hidePanelTitles\":false}"
+      },
+      "references":[
+        {"name":"panel_0","type":"visualization","id":"web_requests_count"},
+        {"name":"panel_1","type":"visualization","id":"failed_ssh_logins"},
+        {"name":"panel_2","type":"visualization","id":"top_ip_requests"}
+      ]
+    },
+    {
+      "type":"visualization",
+      "id":"web_requests_count",
+      "attributes":{
+        "title":"Web Requests Count",
+        "visState":"{\"title\":\"Web Requests Count\",\"type\":\"metric\",\"params\":{\"metric\":{\"field\":\"@timestamp\",\"agg\":\"count\"}},\"aggs\":[]}",
+        "uiStateJSON":"{}",
+        "kibanaSavedObjectMeta":{"searchSourceJSON":"{\"index\":\"web_logs\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"}
+      }
+    },
+    {
+      "type":"visualization",
+      "id":"failed_ssh_logins",
+      "attributes":{
+        "title":"Failed SSH Logins",
+        "visState":"{\"title\":\"Failed SSH Logins\",\"type\":\"metric\",\"params\":{\"metric\":{\"field\":\"@timestamp\",\"agg\":\"count\"}},\"aggs\":[]}",
+        "uiStateJSON":"{}",
+        "kibanaSavedObjectMeta":{"searchSourceJSON":"{\"index\":\"security_logs\",\"query\":{\"query\":\"tags:ssh_failed_login\",\"language\":\"kuery\"},\"filter\":[]}"}
+      }
+    },
+    {
+      "type":"visualization",
+      "id":"top_ip_requests",
+      "attributes":{
+        "title":"Top IP Addresses",
+        "visState":"{\"title\":\"Top IPs\",\"type\":\"table\",\"params\":{\"perPage\":5},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"clientip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+        "uiStateJSON":"{}",
+        "kibanaSavedObjectMeta":{"searchSourceJSON":"{\"index\":\"web_logs\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"}
+      }
+    }
+  ]
+}
