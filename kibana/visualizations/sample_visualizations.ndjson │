@@ -1,1 +1,38 @@
-
+[
+  {
+    "type": "visualization",
+    "id": "http_status_distribution",
+    "attributes": {
+      "title": "HTTP Status Distribution",
+      "visState": "{\"title\":\"HTTP Status Distribution\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"response\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}]}",
+      "uiStateJSON": "{}",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"web_logs\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "type": "visualization",
+    "id": "top_failed_ssh_users",
+    "attributes": {
+      "title": "Top Failed SSH Users",
+      "visState": "{\"title\":\"Top Failed SSH Users\",\"type\":\"table\",\"params\":{\"perPage\":5},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"msg.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+      "uiStateJSON": "{}",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"security_logs\",\"query\":{\"query\":\"tags:ssh_failed_login\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "type": "visualization",
+    "id": "top_urls_requested",
+    "attributes": {
+      "title": "Top URLs Requested",
+      "visState": "{\"title\":\"Top URLs Requested\",\"type\":\"table\",\"params\":{\"perPage\":5},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"request.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+      "uiStateJSON": "{}",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"web_logs\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    }
+  }
+]
